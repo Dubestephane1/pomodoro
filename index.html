@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Primary Meta Tags -->
+    <title>Pomodoro Timer - Boost Your Productivity | Odin</title>
+    <meta name="title" content="Pomodoro Timer - Boost Your Productivity | Odin">
+    <meta name="description" content="Free online Pomodoro Timer to boost your productivity. Features customizable time intervals, break timer, and sound notifications. Simple and effective time management tool.">
+    <meta name="keywords" content="pomodoro timer, productivity tool, time management, focus timer, study timer, work timer">
+    <meta name="author" content="Odin">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://pomodoro.odinforge.space">
+    <meta property="og:title" content="Pomodoro Timer - Boost Your Productivity">
+    <meta property="og:description" content="Free online Pomodoro Timer to boost your productivity. Features customizable time intervals, break timer, and sound notifications.">
+    <meta property="og:image" content="https://pomodoro.odinforge.space/images/preview.png">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://pomodoro.odinforge.space/">
+    <meta property="twitter:title" content="Pomodoro Timer - Boost Your Productivity">
+    <meta property="twitter:description" content="Free online Pomodoro Timer to boost your productivity. Features customizable time intervals, break timer, and sound notifications.">
+    <meta property="twitter:image" content="https://pomodoro.odinforge.space/images/preview.png">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png">
+    <link rel="manifest" href="site.webmanifest">
+    
+    <!-- Preconnect to external resources -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Press+Start+2P&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <div class="glass-panel">
+            <h1 class="neon-text">Pomodoro Timer</h1>
+            <div id="timer" class="timer-display">25:00</div>
+            <div class="controls">
+                <button id="start" class="cyber-button">Start</button>
+                <button id="reset" class="cyber-button">Reset</button>
+                <button id="break" class="cyber-button">5-Min Break</button>
+            </div>
+            <div class="custom-time">
+                <input type="number" id="customMinutes" class="cyber-input" min="1" max="60" placeholder="Minutes">
+                <button id="setCustomTime" class="cyber-button">Set Time</button>
+            </div>
+            <div class="theme-selector">
+                <label for="themeSelect" class="neon-text">Theme:</label>
+                <select id="themeSelect" class="cyber-input">
+                    <option value="cyberpunk">Cyberpunk</option>
+                    <option value="minimal">Minimal</option>
+                    <option value="retro">Retro</option>
+                    <option value="nature">Nature</option>
+                    <option value="space">Space</option>
+                    <option value="synthwave">Synthwave</option>
+                    <option value="matrix">Matrix</option>
+                    <option value="sunset">Sunset</option>
+                    <option value="ocean">Ocean</option>
+                    <option value="neon">Neon</option>
+                </select>
+            </div>
+            <div class="sound-option">
+                <label for="soundToggle" class="neon-text">Sound Off/On:</label>
+                <input type="checkbox" id="soundToggle" checked>
+            </div>
+        </div>
+    </div>
+    <div class="credits">
+        Website by <a href="https://odin.fr.to" target="_blank" rel="noopener" class="credit-link">Odin</a>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

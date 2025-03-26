@@ -1,0 +1,480 @@
+:root {
+    --neon-color: #0ff;
+    --neon-border: #08f;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    background: linear-gradient(45deg, #000428, #004e92);
+    font-family: 'Orbitron', sans-serif;
+    color: white;
+    overflow: hidden;
+    position: relative;
+}
+
+body::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: 
+        radial-gradient(circle at 50% 50%, rgba(0,255,255,0.1) 0%, transparent 50%),
+        linear-gradient(45deg, rgba(0,0,0,0.2) 25%, transparent 25%),
+        linear-gradient(-45deg, rgba(0,0,0,0.2) 25%, transparent 25%);
+    background-size: 100% 100%, 20px 20px, 20px 20px;
+    animation: backgroundMove 20s linear infinite;
+    z-index: 0;
+}
+
+.container {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.glass-panel {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    padding: 40px;
+    box-shadow: 0 0 20px rgba(0, 255, 255, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    text-align: center;
+}
+
+.neon-text {
+    color: var(--neon-color);
+    text-shadow: 0 0 10px var(--neon-color),
+                 0 0 20px var(--neon-color),
+                 0 0 30px var(--neon-color);
+    margin-bottom: 30px;
+}
+
+.timer-display {
+    font-size: 4em;
+    font-weight: bold;
+    color: var(--neon-color);
+    text-shadow: 0 0 20px var(--neon-color);
+    margin: 30px 0;
+}
+
+.cyber-button {
+    background: transparent;
+    color: var(--neon-color);
+    border: 2px solid var(--neon-color);
+    padding: 10px 20px;
+    margin: 10px;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 1em;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    box-shadow: 0 0 10px var(--neon-border);
+    position: relative;
+    overflow: hidden;
+}
+
+.cyber-button:hover {
+    background: var(--neon-color);
+    color: black;
+    box-shadow: 0 0 20px var(--neon-color);
+    transform: translateY(-2px);
+}
+
+.sound-option {
+    margin-top: 30px;
+}
+
+.sound-option label {
+    margin-right: 10px;
+}
+
+@keyframes backgroundMove {
+    0% {
+        background-position: 0 0;
+    }
+    100% {
+        background-position: 100px 100px;
+    }
+}
+
+input[type="checkbox"] {
+    appearance: none;
+    width: 50px;
+    height: 25px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 25px;
+    position: relative;
+    cursor: pointer;
+    border: 2px solid var(--neon-color);
+}
+
+input[type="checkbox"]::before {
+    content: '';
+    width: 21px;
+    height: 21px;
+    background: var(--neon-color);
+    border-radius: 50%;
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    transition: 0.3s;
+}
+
+input[type="checkbox"]:checked::before {
+    left: 27px;
+}
+
+.custom-time {
+    margin: 20px 0;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    align-items: center;
+}
+
+.cyber-input {
+    background: rgba(255, 255, 255, 0.1);
+    border: 2px solid var(--neon-color);
+    color: var(--neon-color);
+    padding: 8px 12px;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 1em;
+    width: 100px;
+    border-radius: 5px;
+    outline: none;
+    text-align: center;
+}
+
+.cyber-input:focus {
+    box-shadow: 0 0 15px var(--neon-color);
+}
+
+.cyber-input::placeholder {
+    color: rgba(0, 255, 255, 0.5);
+}
+
+/* Remove spinner buttons from number input */
+.cyber-input::-webkit-inner-spin-button,
+.cyber-input::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+@keyframes flash {
+    0%, 50%, 100% {
+        background: linear-gradient(45deg, #000428, #004e92);
+    }
+    25%, 75% {
+        background: var(--neon-color);
+    }
+}
+
+.flash {
+    animation: flash 0.5s ease-in-out 5;
+}
+
+
+.credits {
+    position: fixed;
+    bottom: 10px;
+    width: 100%;
+    text-align: center;
+    font-size: 0.8em;
+    color: rgba(0, 255, 255, 0.3);
+    z-index: 1;
+}
+
+.credit-link {
+    color: rgba(0, 255, 255, 0.5);
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.credit-link:hover {
+    color: var(--neon-color);
+    text-shadow: 0 0 5px var(--neon-color);
+}
+
+
+/* Theme: Minimal */
+.theme-minimal .glass-panel {
+    background: rgba(255, 255, 255, 0.9);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+.theme-minimal .timer-display {
+    color: #333;
+    text-shadow: none;
+    font-family: 'Arial', sans-serif;
+}
+
+.theme-minimal .cyber-button {
+    background: #f0f0f0;
+    color: #333;
+    border: 1px solid #ddd;
+    box-shadow: none;
+}
+
+.theme-minimal .cyber-button:hover {
+    background: #e0e0e0;
+}
+
+/* Theme: Retro */
+.theme-retro {
+    background: #2c3e50;
+}
+
+.theme-retro .glass-panel {
+    background: #34495e;
+    border: 4px solid #f1c40f;
+    box-shadow: 0 0 20px rgba(241, 196, 15, 0.3);
+}
+
+.theme-retro .timer-display {
+    font-family: 'Press Start 2P', cursive;
+    color: #f1c40f;
+    text-shadow: 2px 2px 0px #e67e22;
+}
+
+.theme-retro .cyber-button {
+    background: #e67e22;
+    color: #fff;
+    border: 2px solid #f1c40f;
+    font-family: 'Press Start 2P', cursive;
+    text-transform: uppercase;
+    font-size: 0.8em;
+}
+
+.theme-retro .cyber-button:hover {
+    background: #f1c40f;
+}
+
+.theme-selector select {
+    min-width: 150px;
+    padding: 5px 10px;
+}
+
+
+/* Theme: Nature */
+.theme-nature {
+    background: linear-gradient(to bottom, #93c572, #2d5a27);
+}
+
+.theme-nature .glass-panel {
+    background: rgba(255, 255, 255, 0.15);
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 0 8px 32px rgba(31, 38, 135, 0.2);
+}
+
+.theme-nature .timer-display {
+    color: #ffffff;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    font-family: 'Helvetica', sans-serif;
+}
+
+.theme-nature .cyber-button {
+    background: rgba(255, 255, 255, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    color: white;
+}
+
+.theme-nature .cyber-button:hover {
+    background: rgba(255, 255, 255, 0.3);
+}
+
+/* Theme: Space */
+.theme-space {
+    background: #000000 url('data:image/svg+xml,<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"><circle cx="10" cy="10" r="1" fill="white"/></svg>') repeat;
+}
+
+.theme-space .glass-panel {
+    background: rgba(25, 25, 50, 0.7);
+    border: 1px solid rgba(100, 100, 255, 0.3);
+    box-shadow: 0 0 20px rgba(100, 100, 255, 0.2);
+}
+
+.theme-space .timer-display {
+    color: #00ffff;
+    text-shadow: 0 0 10px #00ffff;
+    font-family: 'Orbitron', sans-serif;
+}
+
+.theme-space .cyber-button {
+    background: rgba(0, 255, 255, 0.1);
+    border: 1px solid #00ffff;
+    color: #00ffff;
+}
+
+.theme-space .cyber-button:hover {
+    background: rgba(0, 255, 255, 0.2);
+}
+
+/* Theme: Synthwave */
+.theme-synthwave {
+    background: linear-gradient(to bottom, #2b1055, #7597de);
+}
+
+.theme-synthwave .glass-panel {
+    background: rgba(255, 0, 255, 0.1);
+    border: 2px solid rgba(255, 0, 255, 0.2);
+    box-shadow: 0 0 20px rgba(255, 0, 255, 0.3);
+}
+
+.theme-synthwave .timer-display {
+    color: #ff00ff;
+    text-shadow: 0 0 10px #ff00ff, 0 0 20px #ff00ff;
+    font-family: 'Orbitron', sans-serif;
+}
+
+.theme-synthwave .cyber-button {
+    background: rgba(255, 0, 255, 0.1);
+    border: 1px solid #ff00ff;
+    color: #ff00ff;
+    text-shadow: 0 0 5px #ff00ff;
+}
+
+.theme-synthwave .cyber-button:hover {
+    background: rgba(255, 0, 255, 0.2);
+}
+
+/* Theme: Matrix */
+.theme-matrix {
+    background: #000000;
+    position: relative;
+}
+
+.theme-matrix::before {
+    content: '01';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0.1;
+    font-family: 'Courier New', monospace;
+    font-size: 20px;
+    color: #00ff00;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.theme-matrix .glass-panel {
+    background: rgba(0, 255, 0, 0.1);
+    border: 1px solid #00ff00;
+    box-shadow: 0 0 20px rgba(0, 255, 0, 0.3);
+}
+
+.theme-matrix .timer-display {
+    color: #00ff00;
+    text-shadow: 0 0 10px #00ff00;
+    font-family: 'Courier New', monospace;
+}
+
+.theme-matrix .cyber-button {
+    background: transparent;
+    border: 1px solid #00ff00;
+    color: #00ff00;
+    font-family: 'Courier New', monospace;
+}
+
+.theme-matrix .cyber-button:hover {
+    background: rgba(0, 255, 0, 0.2);
+}
+
+/* Theme: Sunset */
+.theme-sunset {
+    background: linear-gradient(45deg, #ff512f, #dd2476);
+}
+
+.theme-sunset .glass-panel {
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 0 0 20px rgba(255, 81, 47, 0.3);
+}
+
+.theme-sunset .timer-display {
+    color: #ffffff;
+    text-shadow: 0 0 15px rgba(255, 81, 47, 0.8);
+    font-family: 'Arial', sans-serif;
+}
+
+.theme-sunset .cyber-button {
+    background: rgba(255, 255, 255, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    color: white;
+}
+
+.theme-sunset .cyber-button:hover {
+    background: rgba(255, 255, 255, 0.3);
+}
+
+/* Theme: Ocean */
+.theme-ocean {
+    background: linear-gradient(to bottom, #1a2980, #26d0ce);
+}
+
+.theme-ocean .glass-panel {
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 0 20px rgba(38, 208, 206, 0.3);
+}
+
+.theme-ocean .timer-display {
+    color: #ffffff;
+    text-shadow: 0 0 15px rgba(38, 208, 206, 0.8);
+    font-family: 'Helvetica', sans-serif;
+}
+
+.theme-ocean .cyber-button {
+    background: rgba(255, 255, 255, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    color: white;
+}
+
+.theme-ocean .cyber-button:hover {
+    background: rgba(255, 255, 255, 0.25);
+}
+
+/* Theme: Neon */
+.theme-neon {
+    background: #111;
+}
+
+.theme-neon .glass-panel {
+    background: rgba(255, 255, 255, 0.05);
+    border: 2px solid #ff00ff;
+    box-shadow: 0 0 20px rgba(255, 0, 255, 0.3),
+                inset 0 0 20px rgba(255, 0, 255, 0.2);
+}
+
+.theme-neon .timer-display {
+    color: #ff00ff;
+    text-shadow: 0 0 10px #ff00ff,
+                 0 0 20px #ff00ff,
+                 0 0 30px #ff00ff;
+    font-family: 'Orbitron', sans-serif;
+}
+
+.theme-neon .cyber-button {
+    background: transparent;
+    border: 2px solid #00ffff;
+    color: #00ffff;
+    text-shadow: 0 0 5px #00ffff;
+    box-shadow: 0 0 10px rgba(0, 255, 255, 0.3),
+                inset 0 0 10px rgba(0, 255, 255, 0.2);
+}
+
+.theme-neon .cyber-button:hover {
+    background: rgba(0, 255, 255, 0.1);
+    box-shadow: 0 0 15px rgba(0, 255, 255, 0.5),
+                inset 0 0 15px rgba(0, 255, 255, 0.3);
+}
